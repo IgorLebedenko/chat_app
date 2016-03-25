@@ -22,7 +22,7 @@ MessagesController < ApplicationController
   def destroy
     message = Message.find(params[:id])
     chat = message.chat
-    message.destroy
+    message.update_attribute(:archived, true)
     redirect_to chat
   end
 end

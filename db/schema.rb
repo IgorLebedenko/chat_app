@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160324160427) do
+ActiveRecord::Schema.define(version: 20160325125105) do
 
   create_table "chat_users", force: :cascade do |t|
     t.integer  "chat_id"
@@ -35,9 +35,12 @@ ActiveRecord::Schema.define(version: 20160324160427) do
     t.text     "content"
     t.integer  "user_id"
     t.integer  "chat_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.boolean  "archived",   default: false
   end
+
+  add_index "messages", ["archived"], name: "index_messages_on_archived"
 
   create_table "users", force: :cascade do |t|
     t.string   "name"
