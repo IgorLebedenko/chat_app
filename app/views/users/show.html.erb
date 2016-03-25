@@ -8,4 +8,15 @@
       </h1>
     </section>
   </aside>
+  <div class="span8">
+    <strong id="create-chat" class="create-btn">
+      <%= button_to "Create chat", chats_path, class: "btn btn-primary" %>
+    </strong>
+    <% if @user.chats.any? %>
+      <h3>Chats (<%= @chats.count %>)</h3>
+      <ol class="chats">
+        <%= render @chats %>
+      </ol>
+    <% end %>
+  </div>
 </div>

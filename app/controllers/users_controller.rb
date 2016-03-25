@@ -4,6 +4,12 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @current_user = current_user
+    if @current_user == @user
+      @chats = @user.chats.paginate(page: params[:page])
+    else
+      @chats = @user.chats.where(private: false).paginate(page: params[:page])
+    end
   end
 
   def new
@@ -42,17 +48,5 @@ class UsersController < ApplicationController
   def user_params
     params.require(:user).permit(:name, :email, :password,
                                  :password_confirmation)
-  end
-
-  def signed_in_user
-    unless signed_in?
-      flash[:notice] = "Please sign in."
-      redirect_to signin_url
-    end
-  end
-
-  def correct_user
-    @user = User.find(params[:id])
-    redirect_to(root_url) unless current_user?(@user)
   end
 end

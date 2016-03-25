@@ -1,0 +1,33 @@
+<% provide(:title, @chat.name) %>
+<div class="row">
+  <aside class="span4">
+    <section>
+      <h1>
+        <%= avatar_for @current_user %>
+        <%= @current_user.name %>
+      </h1>
+    </section>
+    <section>
+      <div class="chat-options">
+        <h2>Chat options:</h2>
+        <ul>
+          <li><%= link_to "Edit", edit_chat_path(@chat) %></li>
+          <li>
+            <%= link_to "Leave", @chat_user, method: :delete,
+                          data: { confirm: "Are you sure?" } %>
+          </li>
+        </ul>
+      </div>
+    </section>
+    <section>
+      <div class="chat-members">
+        <%= render 'members_list' %>
+      </div>
+    </section>
+  </aside>
+  <div class="span8">
+    <h3><span class="name"><%= @chat.name %></span></h3>
+    <%= render 'chat_field' %>
+    <div class="message-field"><%= render 'message_form' %></div>
+  </div>
+</div>

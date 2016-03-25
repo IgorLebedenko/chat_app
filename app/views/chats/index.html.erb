@@ -1,0 +1,10 @@
+<% provide(:title, 'All chats') %>
+<h1>All chats</h1>
+
+<%= will_paginate @chats%>
+
+<ul class="chats">
+  <%= render @chats %>
+</ul>
+
+<%= will_paginate %>

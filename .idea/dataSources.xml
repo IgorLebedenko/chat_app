@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="DataSourceManagerImpl" format="xml" hash="2182213043">
+  <component name="DataSourceManagerImpl" format="xml" hash="3092789023">
     <data-source source="LOCAL" name="Rails chat_app: development" uuid="80ad1370-8b60-4eca-8ada-a494c6937cd2">
       <driver-ref>sqlite.xerial</driver-ref>
       <synchronize>true</synchronize>

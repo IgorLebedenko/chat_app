@@ -1,0 +1,15 @@
+<% provide(:title, @title) %>
+<h1><%= @title %></h1>
+<h2>Members:</h2>
+
+
+<%= will_paginate @members %>
+<ul class="users">
+  <% @members.each do |member| %>
+    <li>
+      <%= avatar_for member, size: 52 %>
+      <%= link_to member.name, member %>
+    </li>
+  <% end %>
+</ul>
+<%= will_paginate @members%>

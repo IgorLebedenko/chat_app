@@ -5,4 +5,16 @@ module UsersHelper
     image_path = "letters/#{first_letter}.png"
     image_tag(image_path, class: "avatar", size: "#{options[:size]}")
   end
+
+  def signed_in_user
+    unless signed_in?
+      flash[:notice] = "Please sign in."
+      redirect_to signin_url
+    end
+  end
+
+  def correct_user
+    @user = User.find(params[:id])
+    redirect_to(root_url) unless current_user?(@user)
+  end
 end

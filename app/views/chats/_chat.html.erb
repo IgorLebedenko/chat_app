@@ -1,0 +1,22 @@
+<li>
+  <span class="content">
+    <%= link_to chat.name, chat %>
+    <% unless member? chat%>
+      <strong id="join" class="join-btn">
+        <%= button_to "Join", chat_users_path(chat_id: chat.id), class: "btn btn-primary", method: :post%>
+      </strong>
+    <% end %>
+  </span>
+  <span class="stats">
+    <a href="<%= members_chat_path(chat) %>">
+      <strong id="members" class="stat">
+        Members: <%= chat.users.count %>
+      </strong>
+    </a>
+      <strong id="messages" class="stat">
+        Messages: <%= chat.messages.count %>
+      </strong>
+
+  </span>
+
+</li>

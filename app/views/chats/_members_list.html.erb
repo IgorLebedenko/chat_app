@@ -1,0 +1,8 @@
+<h2>Members:</h2>
+<% @members.each do |member| %>
+  <ul>
+    <%= link_to avatar_for(member, size: 30), member %>
+    <%= link_to member.name, member %>
+  </ul>
+<% end %>
+<%= will_paginate @members%>

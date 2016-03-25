@@ -1,4 +1,8 @@
 class User < ActiveRecord::Base
+  has_many :messages, dependent: :destroy
+  has_many :chat_users, dependent: :destroy
+  has_many :chats, through: :chat_users
+
   before_save { email.downcase! }
   before_create :create_remember_token
 

@@ -1,5 +1,12 @@
 Rails.application.routes.draw do
   resources :users
+  resources :messages, only: [:create, :update, :destroy]
+  resources :chats do
+    member do
+      get :members
+    end
+  end
+  resources :chat_users, only: [:create, :destroy]
   resources :sessions, only: [:new, :create, :destroy]
 
   root 'static_pages#home'
