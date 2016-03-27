@@ -1,7 +1,11 @@
 <h2>Members:</h2>
 <% @members.each do |member| %>
   <ul>
-    <%= link_to avatar_for(member, size: 30), member %>
+    <div class="image">
+      <%= link_to avatar_for(member, size: 30), member %>
+      <% status = member.online? ? "online" : "offline" %>
+      <div class="<%= status %>-mini"></div>
+    </div>
     <%= link_to member.name, member %>
   </ul>
 <% end %>

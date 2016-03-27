@@ -17,6 +17,7 @@ class User < ActiveRecord::Base
   has_secure_password
   validates :password, length: { minimum: 6 }
 
+  ONLINE_PERIOD = 5.minutes
 
   def User.new_remember_token
     SecureRandom.urlsafe_base64
@@ -24,6 +25,10 @@ class User < ActiveRecord::Base
 
   def User.encrypt(token)
     Digest::SHA1.hexdigest(token.to_s)
+  end
+
+  def online?
+    updated_at > ONLINE_PERIOD.ago
   end
 
   private

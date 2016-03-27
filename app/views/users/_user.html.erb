@@ -1,7 +1,13 @@
 <li>
-  <%= avatar_for user, size: 52 %>
+  <div class="image">
+    <%= avatar_for user, size: 52 %>
+    <% status = user.online? ? "online" : "offline" %>
+    <div class="<%= status %>"></div>
+  </div>
+
   <%= link_to user.name, user %>
   <% unless current_user?user %>
      | <%= link_to "write", chats_path(user_id: user.id), method: :post %>
   <% end %>
+
 </li>

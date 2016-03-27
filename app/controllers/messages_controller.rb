@@ -1,6 +1,6 @@
-class
-MessagesController < ApplicationController
+class MessagesController < ApplicationController
   before_action :signed_in_user
+  after_action :user_activity
 
   def create
     message = Message.new(content: params[:message][:content],

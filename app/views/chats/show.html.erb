@@ -3,7 +3,11 @@
   <aside class="span4">
     <section>
       <h1>
-        <%= avatar_for @current_user %>
+        <div class="image">
+          <%= avatar_for @current_user%>
+          <% status = @current_user.online? ? "online" : "offline" %>
+          <div class="<%= status %>-large"></div>
+        </div>
         <%= @current_user.name %>
       </h1>
     </section>

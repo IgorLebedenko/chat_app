@@ -3,6 +3,7 @@ class ChatsController < ApplicationController
   before_action only: [:edit, :update, :show] do
     chat_member(Chat.find(params[:id]))
   end
+  after_action :user_activity
 
   def index
     @chats = Chat.where(private: false).joins(:messages).group(:chat_id).order("count(*) DESC")

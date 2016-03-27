@@ -7,7 +7,11 @@
 <ul class="users">
   <% @members.each do |member| %>
     <li>
-      <%= avatar_for member, size: 52 %>
+      <div class="image">
+        <%= avatar_for member, size: 52 %>
+        <% status = @current_user.online? ? "online" : "offline" %>
+        <div class="<%= status %>"></div>
+      </div>
       <%= link_to member.name, member %>
     </li>
   <% end %>

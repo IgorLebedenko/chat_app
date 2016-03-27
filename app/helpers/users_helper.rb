@@ -17,4 +17,8 @@ module UsersHelper
     @user = User.find(params[:id])
     redirect_to(root_url) unless current_user?(@user)
   end
+
+  def user_activity
+    current_user.update_attribute(:last_activity_at, Time.now)
+  end
 end

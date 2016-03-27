@@ -108,6 +108,45 @@ aside {
 .avatar {
   float: left;
   margin-right: 10px;
+
+}
+
+.image {
+  position: relative;
+  /* status */
+  .online, .offline, .online-mini,
+  .offline-mini, .online-large, .offline-large{
+    position: absolute;
+    border-radius: 50%;
+    border: 1px solid white;
+  }
+  .online, .online-mini, .online-large {
+    background-color: #690;
+  }
+  .offline, .offline-mini, .offline-large {
+    background-color: #999;
+  }
+
+  .online, .offline {
+    left: 37px;
+    top: 5px;
+    width: 8px;
+    height: 8px;
+  }
+
+  .online-mini, .offline-mini {
+    width: 5px;
+    height: 5px;
+    left: 20px;
+    top: 3px;
+  }
+
+  .online-large, .offline-large {
+    left: 50px;
+    top: 7px;
+    width: 10px;
+    height: 10px;
+  }
 }
 
 .message-count {
