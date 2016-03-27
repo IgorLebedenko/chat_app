@@ -110,6 +110,10 @@ aside {
   margin-right: 10px;
 }
 
+.message-count {
+  padding-top: 10px;
+}
+
 /* forms */
 
 input, textarea, select, .uneditable-input {
@@ -176,7 +180,6 @@ input {
     float: left;
     padding: 0 10px;
     border-left: 1px solid $grayLighter;
-    //color: #0e90d2;
     &:first-child {
       padding-left: 0;
       border: 0;
@@ -287,4 +290,35 @@ aside {
   position: fixed;
   bottom:-10px;
   width: 30%;
+}
+
+.message-list {
+  li {
+    list-style-type: none;
+    padding: 5px;
+    border-bottom: 1px solid #888;
+  }
+  ul {
+    margin-left: 0;
+    padding-left: 0;
+  }
+}
+
+/* search */
+
+.input-group {
+  margin-bottom: 30px;
+  .content-search {
+    width: 25%;
+    float: left;
+    margin-left: 10px;
+  }
+  .date-search {
+    width: 25%;
+    float: right;
+    margin-right: 10px;
+  }
+  .search-btn {
+    display: none;
+  }
 }

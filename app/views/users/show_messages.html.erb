@@ -1,0 +1,35 @@
+<% provide(:title, 'User messages') %>
+<h1><%= "#{@user.name} 's messages(#{@messages.count})" %></h1>
+
+<section class="input-group">
+  <strong>
+    <%= form_tag messages_user_path, method: "get", class: "input-group" do %>
+      <%= text_field_tag :content_search, params[:content_search],maxlength: 1000,
+                         class: "content-search",
+                         placeholder: "Hello, user" %>
+      <span class="input-group-btn">
+        <%= submit_tag "search", class: "btn btn-success btn-md search-btn" %>
+      </span>
+    <% end %>
+  </strong>
+  <strong>
+    <%= form_tag messages_user_path, method: "get", class: "input-group" do %>
+        <%= text_field_tag :date_search, params[:date_search],maxlength: 10,
+                           class: "date-search",
+                           placeholder: "2016-01-13" %>
+        <span class="input-group-btn">
+        <%= submit_tag "search", class: "btn btn-success btn-md search-btn" %>
+      </span>
+    <% end %>
+  </strong>
+</section>
+<span class="message-list">
+  <% @messages.each do |message| %>
+    <li class="message">
+      <span class="user-name"><%= message.user.name %></span>
+      <span class="timestamp"><%= message.created_at.strftime('%F') %></span>
+      <span class="content"><%= message.content %></span>
+    </li>
+  <% end %>
+</span>
+<%= will_paginate @messages %>

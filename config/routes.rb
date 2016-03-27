@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
-  resources :users
+  resources :users do
+    member do
+      get :messages
+    end
+  end
   resources :messages, only: [:create, :update, :destroy]
   resources :chats do
     member do

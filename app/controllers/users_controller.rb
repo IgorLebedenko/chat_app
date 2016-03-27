@@ -43,6 +43,23 @@ class UsersController < ApplicationController
     @users = User.paginate(page: params[:page], per_page: 15)
   end
 
+  def messages
+    @user = User.find(params[:id])
+    @messages = @user.messages.paginate(page: params[:page], per_page: 10)
+    if params[:content_search].present?
+      @messages = @messages.search_by_content(params[:content_search])
+    end
+
+    if params[:date_search].present?
+      begin
+        date = Date.parse(params[:date_search])
+        @messages = @messages.where(created_at: date..date.end_of_day)
+      rescue
+      end
+    end
+    render 'show_messages'
+  end
+
 
   private
   def user_params
