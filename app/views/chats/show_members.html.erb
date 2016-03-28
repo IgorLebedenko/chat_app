@@ -9,7 +9,7 @@
     <li>
       <div class="image">
         <%= avatar_for member, size: 52 %>
-        <% status = @current_user.online? ? "online" : "offline" %>
+        <% status = member.online? ? "online" : "offline" %>
         <div class="<%= status %>"></div>
       </div>
       <%= link_to member.name, member %>
