@@ -6,7 +6,7 @@ class ChatsController < ApplicationController
   after_action :user_activity
 
   def index
-    @chats = Chat.where(private: false).joins(:messages).group(:chat_id).order("count(*) DESC")
+    @chats = Chat.where(private: false).joins(:messages).group("chats.id").order("count(*) DESC")
                  .paginate(page: params[:page], per_page: 15)
   end
 

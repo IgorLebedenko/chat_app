@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160327175034) do
+ActiveRecord::Schema.define(version: 20160328123052) do
 
   create_table "chat_users", force: :cascade do |t|
     t.integer  "chat_id"
@@ -20,7 +20,7 @@ ActiveRecord::Schema.define(version: 20160327175034) do
     t.datetime "updated_at", null: false
   end
 
-  add_index "chat_users", ["chat_id", "user_id"], name: "index_chat_users_on_chat_id_and_user_id"
+  add_index "chat_users", ["chat_id", "user_id"], name: "index_chat_users_on_chat_id_and_user_id", unique: true
   add_index "chat_users", ["chat_id"], name: "index_chat_users_on_chat_id"
   add_index "chat_users", ["user_id"], name: "index_chat_users_on_user_id"
 
@@ -45,11 +45,11 @@ ActiveRecord::Schema.define(version: 20160327175034) do
   create_table "users", force: :cascade do |t|
     t.string   "name"
     t.string   "email"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
+    t.datetime "created_at",                                       null: false
+    t.datetime "updated_at",                                       null: false
     t.string   "password_digest"
     t.string   "remember_token"
-    t.datetime "last_activity_at"
+    t.datetime "last_activity_at", default: '2016-03-28 12:37:00', null: false
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
