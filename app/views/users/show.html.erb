@@ -21,11 +21,11 @@
     </section>
   </aside>
   <div class="span8">
-    <strong id="create-chat" class="create-btn">
-      <% if current_user?@user %>
+    <% if current_user?@user %>
+      <strong id="create-chat" class="create-btn">
         <%= button_to "Create chat", chats_path, class: "btn btn-primary" %>
-      <% end %>
-    </strong>
+      </strong>
+    <% end %>
     <% if @user.chats.any? %>
       <h3>Chats (<%= @chats.count %>)</h3>
       <ol class="chats">

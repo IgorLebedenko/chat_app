@@ -1,2 +1,2 @@
 Chat on "Ruby on Rails"
-[Chat](https://calm-beyond-97443.herokuapp.com)
+(https://calm-beyond-97443.herokuapp.com)
