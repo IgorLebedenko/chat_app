@@ -1,9 +1,13 @@
 <li class="message">
   <span class="user-name"><%= message.user.name %></span>
   <span class="timestamp"><%= time_ago_in_words(message.created_at) %></span>
-  <% if current_user?(message.user) %>
+  <% if current_user?(message.user) && !params[:edited_message].present? %>
     <span class="delete"><%= link_to image_tag("bin.png", size: "12"), message, method: :delete %></span>
-    <span class="edit"><%= link_to image_tag("pencil.png", size: "12"), '#' %></span>
+    <span class="edit">
+      <%= link_to image_tag("pencil.png", size: "12"), chat_path(edited_message: message.id,
+                                                                 message_content: message.content,
+                                                                 user_id: message.user_id) %>
+    </span>
   <% end %>
   <span class="content"><%= message.content %></span>
 </li>

@@ -1,0 +1,5 @@
+<%= form_for @message, method: :patch, url: { action: "update", controller: "messages" } do |f| %>
+    <%= hidden_field_tag(:edited_message, params[:edited_message]) %>
+    <%= f.text_area :content, value: params[:message_content], class: "message-form" %>
+    <%= f.submit "Edit", class: "btn btn-primary input_btn" %>
+<% end %>

@@ -14,9 +14,11 @@ class MessagesController < ApplicationController
   end
 
   def update
-    @message = Message.find(params[:id])
-    @message.update_attribute(:content, params[:content])
-    redirect_to @message.chat
+    message = Message.find(params[:edited_message])
+    if current_user? message.user
+      message.update_attribute(:content, params[:message][:content])
+    end
+    redirect_to message.chat
   end
 
   def destroy

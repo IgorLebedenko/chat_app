@@ -32,6 +32,12 @@
   <div class="span8">
     <h3><span class="name"><%= @chat.name %></span></h3>
     <%= render 'chat_field' %>
-    <div class="message-field"><%= render 'message_form' %></div>
+    <div class="message-field">
+      <% if params[:edited_message].present? %>
+        <%= render 'edited_message_form' %>
+      <% else %>
+        <%= render 'message_form' %>
+      <% end %>
+    </div>
   </div>
 </div>

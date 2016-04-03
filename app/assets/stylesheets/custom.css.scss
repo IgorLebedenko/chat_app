@@ -327,7 +327,7 @@ aside {
 
 .message-field {
   position: fixed;
-  bottom:-10px;
+  bottom: -10px;
   width: 30%;
 }
 
@@ -341,6 +341,11 @@ aside {
     margin-left: 0;
     padding-left: 0;
   }
+}
+
+.message-form {
+  resize: none;
+  //height: 80px;
 }
 
 /* search */
