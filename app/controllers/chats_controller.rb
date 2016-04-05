@@ -13,7 +13,7 @@ class ChatsController < ApplicationController
   def show
     @chat = Chat.find(params[:id])
     @members = @chat.users.paginate(page: params[:page], per_page: 10)
-    @messages = @chat.messages.where(archived: false)
+    @messages = Message.chat_messages_for_user(@chat, current_user)
     @message = current_user.messages.build(chat_id: @chat.id)
     @chat_user = ChatUser.find_by(chat_id: @chat.id, user_id: current_user.id)
   end

@@ -22,9 +22,8 @@ class MessagesController < ApplicationController
   end
 
   def destroy
-    message = Message.find(params[:id])
-    chat = message.chat
-    message.update_attribute(:archived, true)
-    redirect_to chat
+    message = Message.find(params[:message_id])
+    DeletedMessage.create(message_id: message.id, user_id: current_user.id)
+    redirect_to message.chat
   end
 end
