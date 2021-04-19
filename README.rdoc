@@ -1,2 +1,3 @@
 Chat on "Ruby on Rails"
 (https://calm-beyond-97443.herokuapp.com)
+example@user.com / foobar
